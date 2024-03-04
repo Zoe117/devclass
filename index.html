@@ -19,9 +19,9 @@
             <span id="answer4"></span>
 
 
-            <div><button id="next-page-button">Next Page</button></div>
-           
-
+            <div id="current-page"></div>
+            <button id="back-page-button">Back Page</button>
+            <button id="next-page-button">Next Page</button>
         </div>
        
         
@@ -59,30 +59,45 @@
 
             ];
         let currentPage = 0;
+        let currentPageDOM = document.querySelector("#current-page");
+        currentPageDOM.textContent = currentPage;
+
         let quizQuestion = document.querySelector("#question");
         let answer1 = document.querySelector("#answer1");
         let answer2 = document.querySelector("#answer2");
         let answer3 = document.querySelector("#answer3");
         let answer4 = document.querySelector("#answer4");
-        quizQuestion.textContent = quizContent[0].questionText;
-        answer1.textContent = quizContent[0].answer1;
-        answer2.textContent = quizContent[0].answer2;
-        answer3.textContent = quizContent[0].answer3;
-        answer4.textContent = quizContent[0].answer4;
+       
 
-        let button = document.querySelector("#next-page-button");
-        
-        button.addEventListener('click', function(){
-            console.log("click");
-            currentPage++;
+        let nextbutton = document.querySelector("#next-page-button");
+        let backbtn = document.querySelector("#back-page-button");
+        LoadCurrentPage();
+
+        function LoadCurrentPage(){
             quizQuestion.textContent = quizContent[currentPage].questionText;
             answer1.textContent = quizContent[currentPage].answer1;
             answer2.textContent = quizContent[currentPage].answer2;
             answer3.textContent = quizContent[currentPage].answer3;
             answer4.textContent = quizContent[currentPage].answer4;
-        })
+            currentPageDOM.textContent ="Page " +currentPage;
+        }
+        nextbutton.addEventListener('click', function(){
+            if(currentPage == quizContent.length -1){
                 
-        
+            }else{
+                currentPage ++;
+                LoadCurrentPage();
+            }
+        })
+        backbtn.addEventListener('click', function(){
+            if(currentPage == 0){
+               
+            }else{
+                currentPage --;
+                LoadCurrentPage();
+            }
+          
+        })
     </script>
 </body>
 </html>
