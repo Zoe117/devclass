@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="variable">click </button>
+        <span id="number"></span>
+        <button id="reset">reset </button>
+        <button id="changebtn">click </button>
+        <span id="change"></span>
+
+    </div>
+
+    <script>
+        let button = document.querySelector("#variable");
+        let changebtn = document.querySelector("#changebtn");
+        let reset = document.querySelector("#reset");
+        let number = document.querySelector('#number');
+        let change = document.querySelector('#change');
+        let count = 0;
+
+        button.addEventListener('click', function(){
+            if(count < 11){
+                count += 3;
+                number.innerHTML =count;
+            }
+            console.log("click");
+            
+        });
+        reset.addEventListener('click', function(){
+            count = 0;
+            number.innerHTML =count;
+        });
+
+        let array = ["nickel", "dime", "quarter", "dollar", "toonie"];
+        let i=0;
+        changebtn.addEventListener('click', function(){
+            change.innerHTML = array[i];
+            if( i > array.length - 1){
+                return;
+            }
+           i++;
+        });
+
+    </script>
+</body>
+</html>

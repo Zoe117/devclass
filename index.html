@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="question"></h1>
+        <div>
+            <input type="radio" >
+            <span id="answer1"></span>
+            <input type="radio" >
+            <span id="answer2"></span>
+            <input type="radio" >
+            <span id="answer3"></span>
+            <input type="radio" >
+            <span id="answer4"></span>
+
+
+            <div><button id="next-page-button">Next Page</button></div>
+           
+
+        </div>
+       
+        
+    </div>
+    <script>
+        let quizContent = [
+                {
+                    questionText : "Question1",
+                    answer1:"salad",
+                    answer2:"yogurt",
+                    answer3:"fruits",
+                    answer4:"cake"
+                },
+                {
+                    questionText : "Question2",
+                    answer1:"an",
+                    answer2:"3",
+                    answer3:"4",
+                    answer4:"4"
+                },
+                {
+                    questionText : "Question3",
+                    answer1:"an",
+                    answer2:"2",
+                    answer3:"trr",
+                    answer4:"tttt"
+                },
+                {
+                    questionText : "Question4",
+                    answer1:"an",
+                    answer2:"r4",
+                    answer3:"r5",
+                    answer4:"r6"
+                }
+
+            ];
+        let currentPage = 0;
+        let quizQuestion = document.querySelector("#question");
+        let answer1 = document.querySelector("#answer1");
+        let answer2 = document.querySelector("#answer2");
+        let answer3 = document.querySelector("#answer3");
+        let answer4 = document.querySelector("#answer4");
+        quizQuestion.textContent = quizContent[0].questionText;
+        answer1.textContent = quizContent[0].answer1;
+        answer2.textContent = quizContent[0].answer2;
+        answer3.textContent = quizContent[0].answer3;
+        answer4.textContent = quizContent[0].answer4;
+
+        let button = document.querySelector("#next-page-button");
+        
+        button.addEventListener('click', function(){
+            console.log("click");
+            currentPage++;
+            quizQuestion.textContent = quizContent[currentPage].questionText;
+            answer1.textContent = quizContent[currentPage].answer1;
+            answer2.textContent = quizContent[currentPage].answer2;
+            answer3.textContent = quizContent[currentPage].answer3;
+            answer4.textContent = quizContent[currentPage].answer4;
+        })
+                
+        
+    </script>
+</body>
+</html>
